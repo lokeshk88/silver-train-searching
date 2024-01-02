@@ -1,0 +1,14 @@
+<div class="form-inline">
+<%= search_form_for @q do |f| %>
+<div class="row mt-5">
+	<div class="col mb-3">
+	<div class="form-group mx-sm-3 mb-3">
+		<%= f.label :name ,class:"sr-only"%>
+		<%= f.text_field :name_cont, class: 'form-control',placeholder: "Search..." %>
+	</div>
+	<div class="col mb-3">	
+		<%= f.submit class: 'btn btn-primary mb-2' %>
+	</div>
+	
+	<% end %>
+</div>

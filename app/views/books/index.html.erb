@@ -1,0 +1,37 @@
+<p style="color: green"><%= notice %></p>
+
+
+<h1>Books</h1>
+<div class="form-inline">
+  <%= render "searchform"%>    
+</div>
+<div align="right">
+  <%= link_to "New book", new_book_path ,class:"btn btn-primary"%> 
+</div>
+
+  <table class="table table-dark table-strip">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col"><strong>ISBN</strong></th>
+      <th scope="col"><strong>NAME</strong></th>
+      <th scope="col"><strong>AUTHOR:</strong></th>
+      <th scope="col"><strong>YEAR</strong></th>
+      <th scope="col"><strong>PRICE</strong></th>
+      <th scope="col"><strong>STATUS</strong></th>
+      <th scope="col"><strong>GENRE</strong></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+    <tbody>
+    <% @books.each do |book| %>
+    <tr>
+      <%= render book %>
+      
+    </tr>
+    <% end %>
+  </tbody>
+  </table>
