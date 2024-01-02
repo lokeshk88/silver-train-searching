@@ -1,22 +1,28 @@
-# Setup Rails framework and database configuration properly.To run this app !!!
+## Setup Rails framework and database configuration properly.To run this app !!!
 Before clone process ...
 <code>
 sudo apt update
+
 sudo apt install -y build-essential libssl-dev libreadline-dev zlib1g-dev
+
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
 echo 'eval "$(rbenv init --no-rehash -)"' >> ~/.bashrc
 exec bash
+
 git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc
 exec bash
+
 </code>
+
 version setup :-
 
-
 # replace x.x.x with appropiate version
-<code>rbenv install x.x.x</code>
-<code>rbenv global x.x.x</code>
+<code>
+rbenv install x.x.x
+rbenv global x.x.x
+</code>
 
 
 
