@@ -5,11 +5,11 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version : 3.2.2
 
-* System dependencies
+* System dependencies : gem files,<imp>config</imp> file
 
-* Configuration
+* Configuration: install rvm or any version manager like <u>asdf</u>,<u>rbenv</u> packages for switching between <i>ruby versions easily.</i>
 
 * Database creation
 
