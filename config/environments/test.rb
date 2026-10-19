@@ -8,6 +8,11 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  config.active_record.encryption.primary_key = "test-primary-key-not-for-production"
+  config.active_record.encryption.deterministic_key = "test-deterministic-key-not-for-prod"
+  config.active_record.encryption.key_derivation_salt = "test-key-derivation-salt-not-for-prod"
+  config.active_record.encryption.support_unencrypted_data = true
+
   # While tests run files are not watched, reloading is not necessary.
   config.enable_reloading = false
 

@@ -1,7 +1,30 @@
-<td><%= book.isbn %></td>
-    <td><%= book.name %></td>
-    <td><%= book.author %></td>
-    <td><%= book.year %></td>
-    <td><%= book.price %></td>
-    <td><%= book.status %></td>
-    <td><%= book.genre %></td>
+<dl class="book-details">
+  <div class="book-details__item book-details__item--featured">
+    <dt>Title</dt>
+    <dd><%= book.name %></dd>
+  </div>
+  <div class="book-details__item">
+    <dt>Author</dt>
+    <dd><%= book.author %></dd>
+  </div>
+  <div class="book-details__item">
+    <dt>ISBN</dt>
+    <dd><%= book.isbn %></dd>
+  </div>
+  <div class="book-details__item">
+    <dt>Publication year</dt>
+    <dd><%= book.year %></dd>
+  </div>
+  <div class="book-details__item">
+    <dt>Price</dt>
+    <dd><%= book.price.present? ? number_to_currency(book.price) : "—" %></dd>
+  </div>
+  <div class="book-details__item">
+    <dt>Status</dt>
+    <dd><%= book.status? ? "Available" : "Unavailable" %></dd>
+  </div>
+  <div class="book-details__item">
+    <dt>Genre</dt>
+    <dd><%= book.genre.humanize %></dd>
+  </div>
+</dl>

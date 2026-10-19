@@ -1,10 +1,23 @@
-<p style="color: green"><%= notice %></p>
+<% if notice.present? %>
+  <div class="notice" role="status"><%= notice %></div>
+<% end %>
 
-<%= render "profile" , book: @book %>
+<section class="page-heading">
+  <div>
+    <p class="eyebrow">BOOK DETAILS</p>
+    <h1 class="page-title"><%= @book.name %></h1>
+    <p class="page-subtitle">A closer look at this title in your collection.</p>
+  </div>
+  <div class="heading-actions">
+    <%= link_to "Edit book", edit_book_path(@book), class: "button" %>
+    <%= link_to "Back to library", books_path, class: "button button--quiet" %>
+  </div>
+</section>
 
-<div>
-  
-  <%= link_to "Back to books", books_path %>
+<section class="details-panel" aria-label="Book details">
+  <%= render "profile", book: @book %>
+</section>
 
-  
+<div class="page-back-link">
+  <%= link_to "← Back to your library", books_path, class: "text-action" %>
 </div>
