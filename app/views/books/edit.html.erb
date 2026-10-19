@@ -1,10 +1,12 @@
-<h1>Editing book</h1>
+<section class="page-heading">
+  <div>
+    <p class="eyebrow">UPDATE YOUR COLLECTION</p>
+    <h1 class="page-title">Edit book</h1>
+    <p class="page-subtitle"><%= @book.name %></p>
+  </section>
+  <%= link_to "← Back to book", @book, class: "text-action" %>
+</section>
 
-<%= render "form", book: @book %>
-
-<br>
-
-<div>
-  <%= link_to "Show this book", @book %> |
-  <%= link_to "Back to books", books_path %>
+<section class="form-panel" aria-label="Edit book details">
+  <%= render "form", book: @book %>
 </div>

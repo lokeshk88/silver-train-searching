@@ -1,53 +1,43 @@
-## Setup Rails framework and database configuration properly.To run this app !!!
-Before clone process ...
-<code>
-sudo apt update
+# Silver Train Searching
 
-sudo apt install -y build-essential libssl-dev libreadline-dev zlib1g-dev
+A Rails application for browsing and searching books.
 
-git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
-echo 'eval "$(rbenv init --no-rehash -)"' >> ~/.bashrc
-exec bash
+## Requirements
 
-git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc
-exec bash
+- Ruby 3.2.2 (see `.ruby-version`)
+- Bundler 2.5.3 or compatible
+- SQLite 3
 
-</code>
+## Setup
 
-version setup :-
+From the project directory, install the Ruby dependencies and create the development database:
 
-# replace x.x.x with appropiate version
-<code>
-rbenv install x.x.x
-rbenv global x.x.x
-</code>
+```sh
+bundle install
+bin/rails db:encryption:init
+bin/rails credentials:edit --environment development
+bin/rails db:migrate
+bin/rails db:seed
+```
 
+Copy the `active_record_encryption` YAML printed by the first command into the credentials editor, then save and close it. Rails keeps the development credentials key in `config/credentials/development.key`; do not commit or share that key.
 
-<pre>
-##########################################################################
-After clone ...
+The seed task adds 100 sample-catalog entries across fiction, novels, psychology, and Hindi literature. It is safe to rerun and does not delete existing books.
 
+## Run
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Start the Rails development server:
 
-Things you may want to cover:
+```sh
+bin/rails server
+```
 
-* Ruby version : # <b>3.2.2</b>
+Open <http://localhost:3000>. The home page shows the books listing.
 
-* System dependencies : # gem files,<imp>config</imp> file
+## Tests
 
-* Configuration: # Install rvm or any version manager like <u>asdf</u>, <u>rbenv</u> packages for switching between <i>ruby versions easily.</i>
+Run the test suite with:
 
-* Database creation: # 
-
-* Database initialization:
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions(optional)
-</pre>
+```sh
+bin/rails test
+```

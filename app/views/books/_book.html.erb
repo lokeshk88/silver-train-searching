@@ -1,14 +1,24 @@
 
-    <th scope="row">#</th>
-    <td><%= book.isbn %></td>
-    <td><%= book.name %></td>
-    <td><%= book.author %></td>
-    <td><%= book.year %></td>
-    <td><%= book.price %></td>
-    <td><%= book.status %></td>
-    <td><%= book.genre %></td>
-    <th>
-    <td><%= link_to "Show", book, class:"btn btn-success mb-2" %></td>
-    <td><%= link_to "Edit", edit_book_path(book), class: "btn btn-warning mb-2" %> </td> 
-    <td><%= button_to "Delete", book, method: :delete, class: "btn btn-danger mb-2" %></td>
-    </th>
+<tr>
+  <td class="book-title-cell">
+    <%= link_to book.name, book, class: "book-title-link" %>
+    <span class="book-id">Book #<%= book.id %></span>
+  </td>
+  <td class="muted-cell"><%= book.isbn %></td>
+  <td><%= book.author %></td>
+  <td class="muted-cell"><%= book.year %></td>
+  <td><%= book.price.present? ? number_to_currency(book.price) : "—" %></td>
+  <td>
+    <span class="status-badge <%= book.status? ? "status-badge--available" : "status-badge--unavailable" %>">
+      <%= book.status? ? "Available" : "Unavailable" %>
+    </span>
+  </td>
+  <td><span class="genre-label"><%= book.genre.humanize %></span></td>
+  <td>
+    <div class="row-actions">
+      <%= link_to "View", book, class: "text-action" %>
+      <%= link_to "Edit", edit_book_path(book), class: "text-action" %>
+      <%= button_to "Delete", book, method: :delete, class: "text-action text-action--danger" %>
+    </div>
+  </td>
+</tr>
